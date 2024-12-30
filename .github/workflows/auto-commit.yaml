@@ -20,7 +20,7 @@ jobs:
 
             - name: Print Date
               run: |
-                  TZ='America/Chicago' date >> text.txt
+                  TZ='America/Chicago' date >> logs.txt
 
             - name: Setup Git User
               run: |
