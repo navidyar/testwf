@@ -20,8 +20,9 @@ jobs:
 
             - name: Print Date
               run: |
-                  TODAY=$(TZ=":US/Central" date)
-                  $TODAY >> text.txt
+                  date --date='TZ="UTC+6" 2016-08-22 10:37:44' "+%Y-%m-%d %H:%M:%S" >> text.txt
+                  #TODAY=$(TZ=":US/Central" date)
+                  #$TODAY >> text.txt
 
             - name: Setup Git User
               run: |
