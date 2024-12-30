@@ -19,8 +19,7 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Print Date
-              run: |
-                  TZ='America/Chicago' date >> logs.txt
+              run: TZ='America/Chicago' date >> logs.txt
 
             - name: Setup Git User
               run: |
