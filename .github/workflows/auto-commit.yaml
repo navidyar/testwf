@@ -2,7 +2,7 @@ name: Auto Commit WF
 
 on:
     schedule:
-        - cron: '*/240 * * * *'
+        - cron: '*/1 */4 * * *'
     workflow_dispatch:
         inputs:
             commit_message:
