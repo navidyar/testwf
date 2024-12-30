@@ -20,7 +20,7 @@ jobs:
 
             - name: Print Date
               run: |
-                  date --date='TZ="UTC-6"' date "+%Y-%m-%d %H:%M:%S" >> text.txt
+                  TZ='America/Chicago' date >> text.txt
 
             - name: Setup Git User
               run: |
