@@ -19,7 +19,9 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Print Date
-              run: date >> text.txt
+              run: |
+                  TODAY=$(TZ=":US/Central" date)
+                  $TODAY >> text.txt
 
             - name: Setup Git User
               run: |
