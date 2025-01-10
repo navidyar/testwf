@@ -1,0 +1,34 @@
+name: Auto Commit WF
+
+on:
+    schedule:
+        - cron: '0 */6 */3 * *'
+    workflow_dispatch:
+        inputs:
+            commit_message:
+                description: Enter Commit Message
+                type: string
+                required: false
+
+jobs:
+    commit:
+        name: Commit Code
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Print Date
+              run: TZ='America/Chicago' date >> logs.txt
+
+            - name: Setup Git User
+              run: |
+                  git config user.name "${{ github.repository_owner }}"
+                  git config user.email "${{ secrets.EMAIL }}"
+
+            - name: Commit Code
+              run: |
+                git pull -p
+                git add .
+                git commit -m "${{ inputs.commit_message || 'Commiting Date Change'}}"
+                git push
