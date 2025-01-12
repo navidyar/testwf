@@ -3,6 +3,7 @@ name: Auto Commit WF
 on:
     schedule:
         - cron: '0 */4 */2 * *'
+        - cron: '0 */6 */3 * *'
     workflow_dispatch:
         inputs:
             commit_message:
